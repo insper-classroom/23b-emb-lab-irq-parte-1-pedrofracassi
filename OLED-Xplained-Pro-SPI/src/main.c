@@ -193,11 +193,10 @@ int main (void)
 	int led_counter = 0;
 	int led_state = 0;
 	int toggle_led = 0;
-	int should_sleep = 1;
 
   /* Insert application code here, after the board has been initialized. */
 	while(1) {
-			should_sleep = 1;
+			int should_sleep = 1;
 		
 			if (is_but1_pressed) {
 				but1_pressed_for += 1;
