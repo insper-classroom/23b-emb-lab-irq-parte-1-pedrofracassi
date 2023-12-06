@@ -39,7 +39,6 @@
 #define BUT_IDX_MASK (1 << BUT_IDX)
 
 volatile int delay = 50;
-volatile int led_state = 0;
 
 volatile int update_oled = 1;
 volatile int is_but1_pressed = 0;
@@ -49,12 +48,8 @@ volatile int is_but3_pressed = 0;
 volatile int but1_pressed_for = 0;
 volatile int but3_pressed_for = 0;
 
-volatile int led_counter = 0;
 volatile int remaining_blinks = 0;
-volatile int toggle_led = 0;
 volatile int reset_progress_bar = 0;
-
-volatile int should_sleep = 1;
 
 int max_blinks = 30;
 
@@ -194,6 +189,11 @@ int main (void)
 
   // Init OLED
 	gfx_mono_ssd1306_init();  
+
+	int led_counter = 0;
+	int led_state = 0;
+	int toggle_led = 0;
+	int should_sleep = 1;
 
   /* Insert application code here, after the board has been initialized. */
 	while(1) {
